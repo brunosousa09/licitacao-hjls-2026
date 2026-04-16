@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal de Licitação - HJSL</title>
-    <!-- Favicon / Ícone da aba -->
     <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMGQ5NDg4IiBkPSJNNjQgNjRDMjguNyA2NCAwIDkyLjcgMCAxMjhWNDQ4YzAgMzUuMyAyOC43IDY0IDY0IDY0SDQ0OGMzNS4zIDAgNjQtMjguNyA2NC02NFYxMjhjMC0zNS4zLTI4LjctNjQtNjQtNjRMNjQgNjR6TTI1NiA0MTZjLTE3LjcgMC0zMi0xNC4zLTMyLTMyVjI1NkgxMjRjLTE3LjcgMC0zMi0xNC4zLTMyLTMycyAxNC4zLTMyIDMyLTMySDIyNFY5NmMwLTE3LjcgMTQuMy0zMiAzMi0zMnMxNC4zIDE0LjMgMzIgMzJWMTkyaDEwMGMxNy43IDAgMzIgMTQuMyAzMiAzMnMtMTQuMyAzMi0zMiAzMkgyODhWMzg0YzAgMTcuNy0xNC4zIDMyLTMyIDMyem0wIDB6Ii8+PC9zdmc+" type="image/svg+xml">
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
         
         body {
-            /* Tema Saúde: Verdes suaves, Branco e Tons de Teal */
             background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #ccfbf1 100%);
             background-attachment: fixed;
             min-height: 100vh;
@@ -23,7 +20,6 @@
             padding: 0;
         }
         
-        /* Glassmorphism Suave (Claro) */
         .glass-container {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(16px);
@@ -42,79 +38,29 @@
             box-shadow: 0 4px 20px rgba(13, 148, 136, 0.05);
         }
 
-        /* Hover das linhas animado */
-        .table-row-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .table-row-hover:hover { 
-            background: rgba(20, 184, 166, 0.08); 
-            transform: translateX(4px);
-        }
-        
-        .type-separator {
-            background: linear-gradient(90deg, rgba(20,184,166,0.15) 0%, rgba(20,184,166,0.02) 100%);
-            border-left: 4px solid #0d9488;
-        }
-
-        /* Scrollbar temática */
+        .table-row-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .table-row-hover:hover { background: rgba(20, 184, 166, 0.08); transform: translateX(4px); }
+        .type-separator { background: linear-gradient(90deg, rgba(20,184,166,0.15) 0%, rgba(20,184,166,0.02) 100%); border-left: 4px solid #0d9488; }
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #5eead4; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #14b8a6; }
 
-        /* Botão Interativo e Animado */
-        .btn-glass {
-            background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
-            color: white;
-            box-shadow: 0 4px 15px rgba(13, 148, 136, 0.3);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .btn-glass:hover {
-            background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(13, 148, 136, 0.4);
-        }
-        .btn-glass:active {
-            transform: translateY(1px);
-        }
+        .btn-glass { background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%); color: white; box-shadow: 0 4px 15px rgba(13, 148, 136, 0.3); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .btn-glass:hover { background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%); transform: translateY(-2px) scale(1.02); box-shadow: 0 8px 25px rgba(13, 148, 136, 0.4); }
+        .btn-glass:active { transform: translateY(1px); }
 
-        /* Animação do Accordion */
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease-out;
-            opacity: 0;
-        }
-        .accordion-content.open {
-            max-height: 8000px; 
-            opacity: 1;
-        }
-        
-        /* Animação do Ícone */
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease-out; opacity: 0; }
+        .accordion-content.open { max-height: 8000px; opacity: 1; }
         .icon-rotate { transform: rotate(180deg); }
         .chevron-icon { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-
-        /* Pulso no ícone de saúde */
-        @keyframes pulse-soft {
-            0%, 100% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.1); opacity: 1; }
-        }
+        @keyframes pulse-soft { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.1); opacity: 1; } }
         .animate-health { animation: pulse-soft 3s infinite; }
-        
-        /* Efeito de entrada (Fade-in stagger) */
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .fade-in-up { animation: fadeInUp 0.6s ease-out forwards; opacity: 0; transform: translateY(20px); }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body class="antialiased">
-
-    <!-- Nav -->
     <nav class="glass-nav py-3 px-4 md:px-6 flex justify-between items-center">
         <div class="flex items-center gap-3">
             <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-teal-50 flex items-center justify-center border border-teal-200 shadow-sm">
@@ -127,7 +73,7 @@
         </div>
         <div class="flex flex-col md:flex-row items-end md:items-center gap-1 md:gap-4">
             <span class="text-xs md:text-sm text-slate-500 font-medium"><i class="fa-regular fa-calendar-check mr-1 text-teal-500"></i> Certame 2026</span>
-            <span class="text-xs md:text-sm text-slate-500 font-medium"><i class="fa-solid fa-boxes-stacked mr-1 text-teal-500"></i> 6 Lotes</span>
+            <span class="text-xs md:text-sm text-slate-500 font-medium"><i class="fa-solid fa-boxes-stacked mr-1 text-teal-500"></i> 8 Lotes</span>
         </div>
     </nav>
 
@@ -139,13 +85,12 @@
             <h2 class="text-3xl md:text-5xl font-extrabold text-slate-800 mb-3 md:mb-4 tracking-tight">
                 Relação de Medicamentos
             </h2>
-            <p class="text-slate-500 max-w-2xl mx-auto text-sm md:text-base px-2">Catálogo oficial estruturado por lotes. Navegue pelas categorias para visualizar e exportar os itens solicitados para o exercício de 2026.</p>
+            <p class="text-slate-500 max-w-2xl mx-auto text-sm md:text-base px-2">Catálogo oficial estruturado por lotes para o exercício de 2026.</p>
         </div>
 
         <div class="grid gap-6 md:gap-8">
 
             <section class="glass-container rounded-2xl md:rounded-3xl overflow-hidden relative fade-in-up" style="animation-delay: 0.2s;">
-                <!-- Destaque visual decorativo -->
                 <div class="absolute top-0 left-0 w-1.5 h-full bg-teal-400"></div>
                 
                 <div class="p-4 md:p-6 border-b border-teal-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 relative z-10 hover:bg-teal-50/50 transition-colors cursor-pointer" onclick="toggleAccordion('lote_1')">
@@ -795,7 +740,6 @@
             </section>
 
             <section class="glass-container rounded-2xl md:rounded-3xl overflow-hidden relative fade-in-up" style="animation-delay: 0.30000000000000004s;">
-                <!-- Destaque visual decorativo -->
                 <div class="absolute top-0 left-0 w-1.5 h-full bg-teal-400"></div>
                 
                 <div class="p-4 md:p-6 border-b border-teal-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 relative z-10 hover:bg-teal-50/50 transition-colors cursor-pointer" onclick="toggleAccordion('lote_2')">
@@ -1156,34 +1100,430 @@
             </section>
 
             <section class="glass-container rounded-2xl md:rounded-3xl overflow-hidden relative fade-in-up" style="animation-delay: 0.4s;">
-                <!-- Destaque visual decorativo -->
                 <div class="absolute top-0 left-0 w-1.5 h-full bg-teal-400"></div>
                 
-                <div class="p-4 md:p-6 border-b border-teal-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 relative z-10 hover:bg-teal-50/50 transition-colors cursor-pointer" onclick="toggleAccordion('lote_3')">
+                <div class="p-4 md:p-6 border-b border-teal-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 relative z-10 hover:bg-teal-50/50 transition-colors cursor-pointer" onclick="toggleAccordion('lote_3a')">
                     <div class="flex items-center gap-4 w-full sm:w-auto pl-2">
                         <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center border border-teal-100 shadow-sm shrink-0">
-                            <i id="icon_lote_3" class="fa-solid fa-chevron-down text-teal-500 chevron-icon "></i>
+                            <i id="icon_lote_3a" class="fa-solid fa-chevron-down text-teal-500 chevron-icon "></i>
                         </div>
                         <div>
                             <div class="flex items-center gap-2 mb-1">
-                                <span class="px-2.5 py-1 text-[10px] md:text-xs font-bold uppercase tracking-wider bg-teal-100 text-teal-700 rounded-full">
-                                    LOTE 3
+                                <span class="px-2.5 py-1 text-[10px] md:text-xs font-bold uppercase tracking-wider bg-blue-100 text-blue-700 border border-blue-200 rounded-full">
+                                    LOTE 3A
                                 </span>
-                                <span class="text-slate-500 text-xs font-medium"><i class="fa-solid fa-capsules mr-1 opacity-70"></i> 94 Itens</span>
+                                <span class="text-slate-500 text-xs font-medium"><i class="fa-solid fa-capsules mr-1 opacity-70"></i> 17 Itens</span>
                             </div>
-                            <h3 class="text-base md:text-xl font-bold text-slate-800 leading-tight">INJETAVEIS E SOLUCOES PARENTERAIS</h3>
+                            <h3 class="text-base md:text-xl font-bold text-slate-800 leading-tight">INJETAVEIS E SOLUCOES - ANALGESIA</h3>
                         </div>
                     </div>
                     
-                    <button onclick="event.stopPropagation(); exportTableToCSV('lote_3_table', 'LOTE_3_HJSL_2026.csv')" class="w-full sm:w-auto btn-glass px-5 py-2.5 md:px-6 md:py-3 rounded-lg md:rounded-xl text-sm md:text-base font-semibold flex items-center justify-center gap-2 group z-20">
+                    <button onclick="event.stopPropagation(); exportTableToCSV('lote_3a_table', 'LOTE_3A_HJSL_2026.csv')" class="w-full sm:w-auto btn-glass px-5 py-2.5 md:px-6 md:py-3 rounded-lg md:rounded-xl text-sm md:text-base font-semibold flex items-center justify-center gap-2 group z-20">
                         <i class="fa-solid fa-download text-teal-100 group-hover:text-white transition-colors"></i>
                         Exportar Lote
                     </button>
                 </div>
                 
-                <div id="content_lote_3" class="accordion-content  relative z-10 bg-white/40">
+                <div id="content_lote_3a" class="accordion-content  relative z-10 bg-white/40">
                     <div class="overflow-x-auto w-full">
-                        <table id="lote_3_table" class="w-full text-left border-collapse min-w-[500px]">
+                        <table id="lote_3a_table" class="w-full text-left border-collapse min-w-[500px]">
+                            <thead>
+                                <tr class="bg-teal-50 text-teal-800 text-[10px] md:text-xs uppercase tracking-widest border-b border-teal-100">
+                                    <th class="px-4 md:px-6 py-4 font-bold w-12 md:w-16">Ord</th>
+                                    <th class="px-4 md:px-6 py-4 font-bold">Produto</th>
+                                    <th class="px-4 md:px-6 py-4 font-bold">Apresentação</th>
+                                    <th class="px-4 md:px-6 py-4 font-bold text-right">Qtd</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-xs md:text-sm divide-y divide-teal-50">
+
+                                <tr class="type-separator">
+                                    <td colspan="4" class="px-4 md:px-6 py-2.5 text-teal-700 font-bold tracking-wide text-[10px] md:text-xs uppercase">
+                                        <i class="fa-solid fa-angle-right mr-2 opacity-50"></i> AMPOLA
+                                    </td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">53</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">BUPIVACAINA + GLICOSE 5MG/ML</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">600</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">71</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">CETOPROFENO INJETAVEL 100MG    EV</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">10.000</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">72</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">CETOPROFENO INJETAVEL 50MG    IM</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">10.000</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">88</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">CLORIDRATO DE CETAMINA 50 MG/ML</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">300</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">119</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">DIPIRONA INJETAVEL</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">36.000</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">134</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">ESCOPOLAMINA + DIPIRONA (COMPOSTO)</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">28.000</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">136</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">ESCOPOLAMINA SEM DIPIRONA 20 MG/ML</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">10.000</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">143</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">ETOMIDATO 25MG/ML</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">400</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">152</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">FENTANIL</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">400</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">194</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">LIDOCAINA 2%</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">3.000</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">195</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">LIDOCAINA 2% COM VASO 20ML</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">500</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">196</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">LIDOCAINA 2% SEM VASO 20ML</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">1.000</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">221</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">MORFINA 10 MG</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">700</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">257</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">PROPOFOL 10MG/20ML</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">300</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">292</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">TRAMADOL 100 MG/ML</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">5.000</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">293</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">TRAMADOL 50 MG/ML</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">5.000</td>
+                                </tr>
+
+                                <tr class="type-separator">
+                                    <td colspan="4" class="px-4 md:px-6 py-2.5 text-teal-700 font-bold tracking-wide text-[10px] md:text-xs uppercase">
+                                        <i class="fa-solid fa-angle-right mr-2 opacity-50"></i> SOL.AMPOLA
+                                    </td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">113</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">DICLOFENACO SÓDICO 25MG/ML 3ML</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">SOL.AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">18.000</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="glass-container rounded-2xl md:rounded-3xl overflow-hidden relative fade-in-up" style="animation-delay: 0.5s;">
+                <div class="absolute top-0 left-0 w-1.5 h-full bg-teal-400"></div>
+                
+                <div class="p-4 md:p-6 border-b border-teal-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 relative z-10 hover:bg-teal-50/50 transition-colors cursor-pointer" onclick="toggleAccordion('lote_3b')">
+                    <div class="flex items-center gap-4 w-full sm:w-auto pl-2">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center border border-teal-100 shadow-sm shrink-0">
+                            <i id="icon_lote_3b" class="fa-solid fa-chevron-down text-teal-500 chevron-icon "></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="px-2.5 py-1 text-[10px] md:text-xs font-bold uppercase tracking-wider bg-rose-100 text-rose-700 border border-rose-200 rounded-full">
+                                    LOTE 3B
+                                </span>
+                                <span class="text-slate-500 text-xs font-medium"><i class="fa-solid fa-capsules mr-1 opacity-70"></i> 22 Itens</span>
+                            </div>
+                            <h3 class="text-base md:text-xl font-bold text-slate-800 leading-tight">INJETAVEIS E SOLUCOES - ANTIBIOTICOS</h3>
+                        </div>
+                    </div>
+                    
+                    <button onclick="event.stopPropagation(); exportTableToCSV('lote_3b_table', 'LOTE_3B_HJSL_2026.csv')" class="w-full sm:w-auto btn-glass px-5 py-2.5 md:px-6 md:py-3 rounded-lg md:rounded-xl text-sm md:text-base font-semibold flex items-center justify-center gap-2 group z-20">
+                        <i class="fa-solid fa-download text-teal-100 group-hover:text-white transition-colors"></i>
+                        Exportar Lote
+                    </button>
+                </div>
+                
+                <div id="content_lote_3b" class="accordion-content  relative z-10 bg-white/40">
+                    <div class="overflow-x-auto w-full">
+                        <table id="lote_3b_table" class="w-full text-left border-collapse min-w-[500px]">
+                            <thead>
+                                <tr class="bg-teal-50 text-teal-800 text-[10px] md:text-xs uppercase tracking-widest border-b border-teal-100">
+                                    <th class="px-4 md:px-6 py-4 font-bold w-12 md:w-16">Ord</th>
+                                    <th class="px-4 md:px-6 py-4 font-bold">Produto</th>
+                                    <th class="px-4 md:px-6 py-4 font-bold">Apresentação</th>
+                                    <th class="px-4 md:px-6 py-4 font-bold text-right">Qtd</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-xs md:text-sm divide-y divide-teal-50">
+
+                                <tr class="type-separator">
+                                    <td colspan="4" class="px-4 md:px-6 py-2.5 text-teal-700 font-bold tracking-wide text-[10px] md:text-xs uppercase">
+                                        <i class="fa-solid fa-angle-right mr-2 opacity-50"></i> AMPOLA
+                                    </td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">32</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">AMPICILINA PÓ INJETÁVEL 1G</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">12.000</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">40</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">BENZILPENICILINA POTÁSICA PÓ PARA SUSPENSÃO INJETÁVEL 5.000.000 UI</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">3.000</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">41</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">BENZILPENICILINABENZATINA PÓ PARA SUSPENSÃO INJETÁVEL 1.200.000 UI</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">6.000</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">42</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">BENZILPENICILINABENZATINA PÓ PARA SUSPENSÃO INJETÁVEL 600.000 UI</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">3.400</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">75</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">CIPROFLOXACINO 2MG/ML</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">5.000</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">81</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">CLINDAMICINA 150MG/ML</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">2.000</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">144</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">FAZOLON 1G IM/EV (CEFAZOLINA)</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">300</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">159</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">GENTAMICINA 20 MG/ML</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">1.000</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">160</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">GENTAMICINA 40 MG</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">10.000</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">161</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">GENTAMICINA 80 MG</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">10.000</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">242</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">OXACILINA 500MG/5ML</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">400</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">247</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">PENICILINA CRISTALINA 5.000.000UI</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">700</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">249</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">PIPERACILINA SODICA + TAZOBACTAN  4,0G/0,5G</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">500</td>
+                                </tr>
+
+                                <tr class="type-separator">
+                                    <td colspan="4" class="px-4 md:px-6 py-2.5 text-teal-700 font-bold tracking-wide text-[10px] md:text-xs uppercase">
+                                        <i class="fa-solid fa-angle-right mr-2 opacity-50"></i> FRASCO AMPOLA
+                                    </td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">76</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">CIPROFLOXACINO 400MG BOLSA 200ML</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">FRASCO AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">200</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">189</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">LEVOFLOXACINO 5MG/ML (0,5%) 100ML</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">FRASCO AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">4.000</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">205</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">MEROPENEM 1G - PÓ LIOFILIZADO</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">FRASCO AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">5.000</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">295</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">VANCOMICINA 500MG FRASCO-AMPOLA – PÓ LIOFILIZADO</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">FRASCO AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">4.000</td>
+                                </tr>
+
+                                <tr class="type-separator">
+                                    <td colspan="4" class="px-4 md:px-6 py-2.5 text-teal-700 font-bold tracking-wide text-[10px] md:text-xs uppercase">
+                                        <i class="fa-solid fa-angle-right mr-2 opacity-50"></i> INJETÁVEL
+                                    </td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">212</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">METRONIDAZOL  5  MG/ML  SOLUÇÃO  INJETÁVEL COM 100 ML</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">INJETÁVEL</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">10.000</td>
+                                </tr>
+
+                                <tr class="type-separator">
+                                    <td colspan="4" class="px-4 md:px-6 py-2.5 text-teal-700 font-bold tracking-wide text-[10px] md:text-xs uppercase">
+                                        <i class="fa-solid fa-angle-right mr-2 opacity-50"></i> PÓ AMPOLA
+                                    </td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">65</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">CEFALOTINA 1G</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">PÓ AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">10.000</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">66</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">CEFTRIAXONA SODICA 1G EV/IM</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">PÓ AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">15.000</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">67</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">CEFTRIAXONA SODICA 250 MG EV/IM</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">PÓ AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">4.000</td>
+                                </tr>
+
+                                <tr class="table-row-hover bg-transparent">
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">68</td>
+                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">CEFTRIAXONA SODICA 500 MG EV/IM</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">PÓ AMPOLA</td>
+                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">5.000</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="glass-container rounded-2xl md:rounded-3xl overflow-hidden relative fade-in-up" style="animation-delay: 0.6000000000000001s;">
+                <div class="absolute top-0 left-0 w-1.5 h-full bg-teal-400"></div>
+                
+                <div class="p-4 md:p-6 border-b border-teal-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 relative z-10 hover:bg-teal-50/50 transition-colors cursor-pointer" onclick="toggleAccordion('lote_3c')">
+                    <div class="flex items-center gap-4 w-full sm:w-auto pl-2">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center border border-teal-100 shadow-sm shrink-0">
+                            <i id="icon_lote_3c" class="fa-solid fa-chevron-down text-teal-500 chevron-icon "></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="px-2.5 py-1 text-[10px] md:text-xs font-bold uppercase tracking-wider bg-emerald-100 text-emerald-700 border border-emerald-200 rounded-full">
+                                    LOTE 3C
+                                </span>
+                                <span class="text-slate-500 text-xs font-medium"><i class="fa-solid fa-capsules mr-1 opacity-70"></i> 76 Itens</span>
+                            </div>
+                            <h3 class="text-base md:text-xl font-bold text-slate-800 leading-tight">INJETAVEIS E SOLUCOES - GERAL</h3>
+                        </div>
+                    </div>
+                    
+                    <button onclick="event.stopPropagation(); exportTableToCSV('lote_3c_table', 'LOTE_3C_HJSL_2026.csv')" class="w-full sm:w-auto btn-glass px-5 py-2.5 md:px-6 md:py-3 rounded-lg md:rounded-xl text-sm md:text-base font-semibold flex items-center justify-center gap-2 group z-20">
+                        <i class="fa-solid fa-download text-teal-100 group-hover:text-white transition-colors"></i>
+                        Exportar Lote
+                    </button>
+                </div>
+                
+                <div id="content_lote_3c" class="accordion-content  relative z-10 bg-white/40">
+                    <div class="overflow-x-auto w-full">
+                        <table id="lote_3c_table" class="w-full text-left border-collapse min-w-[500px]">
                             <thead>
                                 <tr class="bg-teal-50 text-teal-800 text-[10px] md:text-xs uppercase tracking-widest border-b border-teal-100">
                                     <th class="px-4 md:px-6 py-4 font-bold w-12 md:w-16">Ord</th>
@@ -1264,31 +1604,10 @@
                                 </tr>
 
                                 <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">53</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">BUPIVACAINA + GLICOSE 5MG/ML</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">600</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
                                     <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">62</td>
                                     <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">CEDILANID 0,2 MG/ML</td>
                                     <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
                                     <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">2.500</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">71</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">CETOPROFENO INJETAVEL 100MG    EV</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">10.000</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">72</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">CETOPROFENO INJETAVEL 50MG    IM</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">10.000</td>
                                 </tr>
 
                                 <tr class="table-row-hover bg-transparent">
@@ -1324,13 +1643,6 @@
                                     <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">CLORETO DE SÓDIO</td>
                                     <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
                                     <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">3.000</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">88</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">CLORIDRATO DE CETAMINA 50 MG/ML</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">300</td>
                                 </tr>
 
                                 <tr class="table-row-hover bg-transparent">
@@ -1383,13 +1695,6 @@
                                 </tr>
 
                                 <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">119</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">DIPIRONA INJETAVEL</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">36.000</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
                                     <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">123</td>
                                     <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">DIPROPIONATO DE BETAMETASONA+FOSFATO DISSÓDICO DE BETAMETASONA 5MG/ML + 2MG/ML</td>
                                     <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
@@ -1429,41 +1734,6 @@
                                     <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">EFORTIL 10 MG</td>
                                     <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
                                     <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">20.000</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">134</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">ESCOPOLAMINA + DIPIRONA (COMPOSTO)</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">28.000</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">136</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">ESCOPOLAMINA SEM DIPIRONA 20 MG/ML</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">10.000</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">143</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">ETOMIDATO 25MG/ML</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">400</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">144</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">FAZOLON 1G IM/EV (CEFAZOLINA)</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">300</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">152</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">FENTANIL</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">400</td>
                                 </tr>
 
                                 <tr class="table-row-hover bg-transparent">
@@ -1565,27 +1835,6 @@
                                 </tr>
 
                                 <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">194</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">LIDOCAINA 2%</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">3.000</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">195</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">LIDOCAINA 2% COM VASO 20ML</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">500</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">196</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">LIDOCAINA 2% SEM VASO 20ML</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">1.000</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
                                     <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">202</td>
                                     <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">MALEATO DE METILERGOMETRINA 0,2MG/ML</td>
                                     <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
@@ -1656,24 +1905,10 @@
                                 </tr>
 
                                 <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">249</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">PIPERACILINA SODICA + TAZOBACTAN  4,0G/0,5G</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">500</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
                                     <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">256</td>
                                     <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">PROMETAZINA, CLORIDRATO DE SOLUÇÃO INJETÁVEL 25 MG/ML</td>
                                     <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
                                     <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">5.000</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">257</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">PROPOFOL 10MG/20ML</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">300</td>
                                 </tr>
 
                                 <tr class="table-row-hover bg-transparent">
@@ -1822,13 +2057,6 @@
                                     <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">400</td>
                                 </tr>
 
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">295</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">VANCOMICINA 500MG FRASCO-AMPOLA – PÓ LIOFILIZADO</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">FRASCO AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">4.000</td>
-                                </tr>
-
                                 <tr class="type-separator">
                                     <td colspan="4" class="px-4 md:px-6 py-2.5 text-teal-700 font-bold tracking-wide text-[10px] md:text-xs uppercase">
                                         <i class="fa-solid fa-angle-right mr-2 opacity-50"></i> FRASCO-AMPOLA
@@ -1840,19 +2068,6 @@
                                     <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">SORO FISIOLÓGICO 0,9% 100 ML</td>
                                     <td class="px-4 md:px-6 py-3.5 text-slate-500">FRASCO-AMPOLA</td>
                                     <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">18.000</td>
-                                </tr>
-
-                                <tr class="type-separator">
-                                    <td colspan="4" class="px-4 md:px-6 py-2.5 text-teal-700 font-bold tracking-wide text-[10px] md:text-xs uppercase">
-                                        <i class="fa-solid fa-angle-right mr-2 opacity-50"></i> PÓ AMPOLA
-                                    </td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">65</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">CEFALOTINA 1G</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">PÓ AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">10.000</td>
                                 </tr>
 
                                 <tr class="type-separator">
@@ -1881,21 +2096,13 @@
                                     <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">2.000</td>
                                 </tr>
 
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">113</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">DICLOFENACO SÓDICO 25MG/ML 3ML</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">SOL.AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">18.000</td>
-                                </tr>
-
                             </tbody>
                         </table>
                     </div>
                 </div>
             </section>
 
-            <section class="glass-container rounded-2xl md:rounded-3xl overflow-hidden relative fade-in-up" style="animation-delay: 0.5s;">
-                <!-- Destaque visual decorativo -->
+            <section class="glass-container rounded-2xl md:rounded-3xl overflow-hidden relative fade-in-up" style="animation-delay: 0.7000000000000001s;">
                 <div class="absolute top-0 left-0 w-1.5 h-full bg-teal-400"></div>
                 
                 <div class="p-4 md:p-6 border-b border-teal-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 relative z-10 hover:bg-teal-50/50 transition-colors cursor-pointer" onclick="toggleAccordion('lote_4')">
@@ -1908,9 +2115,9 @@
                                 <span class="px-2.5 py-1 text-[10px] md:text-xs font-bold uppercase tracking-wider bg-teal-100 text-teal-700 rounded-full">
                                     LOTE 4
                                 </span>
-                                <span class="text-slate-500 text-xs font-medium"><i class="fa-solid fa-capsules mr-1 opacity-70"></i> 52 Itens</span>
+                                <span class="text-slate-500 text-xs font-medium"><i class="fa-solid fa-capsules mr-1 opacity-70"></i> 34 Itens</span>
                             </div>
-                            <h3 class="text-base md:text-xl font-bold text-slate-800 leading-tight">ANTIMICROBIANOS E ANTIPARASITARIOS</h3>
+                            <h3 class="text-base md:text-xl font-bold text-slate-800 leading-tight">ANTIMICROBIANOS E ANTIPARASITARIOS (ORAIS/TOPICOS)</h3>
                         </div>
                     </div>
                     
@@ -1932,89 +2139,6 @@
                                 </tr>
                             </thead>
                             <tbody class="text-xs md:text-sm divide-y divide-teal-50">
-
-                                <tr class="type-separator">
-                                    <td colspan="4" class="px-4 md:px-6 py-2.5 text-teal-700 font-bold tracking-wide text-[10px] md:text-xs uppercase">
-                                        <i class="fa-solid fa-angle-right mr-2 opacity-50"></i> AMPOLA
-                                    </td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">32</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">AMPICILINA PÓ INJETÁVEL 1G</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">12.000</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">40</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">BENZILPENICILINA POTÁSICA PÓ PARA SUSPENSÃO INJETÁVEL 5.000.000 UI</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">3.000</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">41</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">BENZILPENICILINABENZATINA PÓ PARA SUSPENSÃO INJETÁVEL 1.200.000 UI</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">6.000</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">42</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">BENZILPENICILINABENZATINA PÓ PARA SUSPENSÃO INJETÁVEL 600.000 UI</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">3.400</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">75</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">CIPROFLOXACINO 2MG/ML</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">5.000</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">81</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">CLINDAMICINA 150MG/ML</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">2.000</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">159</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">GENTAMICINA 20 MG/ML</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">1.000</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">160</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">GENTAMICINA 40 MG</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">10.000</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">161</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">GENTAMICINA 80 MG</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">10.000</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">242</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">OXACILINA 500MG/5ML</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">400</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">247</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">PENICILINA CRISTALINA 5.000.000UI</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">700</td>
-                                </tr>
 
                                 <tr class="type-separator">
                                     <td colspan="4" class="px-4 md:px-6 py-2.5 text-teal-700 font-bold tracking-wide text-[10px] md:text-xs uppercase">
@@ -2207,33 +2331,6 @@
 
                                 <tr class="type-separator">
                                     <td colspan="4" class="px-4 md:px-6 py-2.5 text-teal-700 font-bold tracking-wide text-[10px] md:text-xs uppercase">
-                                        <i class="fa-solid fa-angle-right mr-2 opacity-50"></i> FRASCO AMPOLA
-                                    </td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">76</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">CIPROFLOXACINO 400MG BOLSA 200ML</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">FRASCO AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">200</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">189</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">LEVOFLOXACINO 5MG/ML (0,5%) 100ML</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">FRASCO AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">4.000</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">205</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">MEROPENEM 1G - PÓ LIOFILIZADO</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">FRASCO AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">5.000</td>
-                                </tr>
-
-                                <tr class="type-separator">
-                                    <td colspan="4" class="px-4 md:px-6 py-2.5 text-teal-700 font-bold tracking-wide text-[10px] md:text-xs uppercase">
                                         <i class="fa-solid fa-angle-right mr-2 opacity-50"></i> GEL
                                     </td>
                                 </tr>
@@ -2243,19 +2340,6 @@
                                     <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">METRONIDAZOL 100MG/G GELÍA VAGINAL</td>
                                     <td class="px-4 md:px-6 py-3.5 text-slate-500">GEL</td>
                                     <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">5.000</td>
-                                </tr>
-
-                                <tr class="type-separator">
-                                    <td colspan="4" class="px-4 md:px-6 py-2.5 text-teal-700 font-bold tracking-wide text-[10px] md:text-xs uppercase">
-                                        <i class="fa-solid fa-angle-right mr-2 opacity-50"></i> INJETÁVEL
-                                    </td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">212</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">METRONIDAZOL  5  MG/ML  SOLUÇÃO  INJETÁVEL COM 100 ML</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">INJETÁVEL</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">10.000</td>
                                 </tr>
 
                                 <tr class="type-separator">
@@ -2282,33 +2366,6 @@
                                     <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">SULFADIAZINA DE PRATA PASTA 1%</td>
                                     <td class="px-4 md:px-6 py-3.5 text-slate-500">POTE</td>
                                     <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">600</td>
-                                </tr>
-
-                                <tr class="type-separator">
-                                    <td colspan="4" class="px-4 md:px-6 py-2.5 text-teal-700 font-bold tracking-wide text-[10px] md:text-xs uppercase">
-                                        <i class="fa-solid fa-angle-right mr-2 opacity-50"></i> PÓ AMPOLA
-                                    </td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">66</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">CEFTRIAXONA SODICA 1G EV/IM</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">PÓ AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">15.000</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">67</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">CEFTRIAXONA SODICA 250 MG EV/IM</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">PÓ AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">4.000</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">68</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">CEFTRIAXONA SODICA 500 MG EV/IM</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">PÓ AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">5.000</td>
                                 </tr>
 
                                 <tr class="type-separator">
@@ -2393,8 +2450,7 @@
                 </div>
             </section>
 
-            <section class="glass-container rounded-2xl md:rounded-3xl overflow-hidden relative fade-in-up" style="animation-delay: 0.6000000000000001s;">
-                <!-- Destaque visual decorativo -->
+            <section class="glass-container rounded-2xl md:rounded-3xl overflow-hidden relative fade-in-up" style="animation-delay: 0.8s;">
                 <div class="absolute top-0 left-0 w-1.5 h-full bg-teal-400"></div>
                 
                 <div class="p-4 md:p-6 border-b border-teal-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 relative z-10 hover:bg-teal-50/50 transition-colors cursor-pointer" onclick="toggleAccordion('lote_5')">
@@ -2407,7 +2463,7 @@
                                 <span class="px-2.5 py-1 text-[10px] md:text-xs font-bold uppercase tracking-wider bg-teal-100 text-teal-700 rounded-full">
                                     LOTE 5
                                 </span>
-                                <span class="text-slate-500 text-xs font-medium"><i class="fa-solid fa-capsules mr-1 opacity-70"></i> 38 Itens</span>
+                                <span class="text-slate-500 text-xs font-medium"><i class="fa-solid fa-capsules mr-1 opacity-70"></i> 35 Itens</span>
                             </div>
                             <h3 class="text-base md:text-xl font-bold text-slate-800 leading-tight">MEDICAMENTOS DE CONTROLE ESPECIAL</h3>
                         </div>
@@ -2485,27 +2541,6 @@
                                     <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">LEVOMEPROMAZINA 25MG/5ML (5MG/ML)</td>
                                     <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
                                     <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">600</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">221</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">MORFINA 10 MG</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">700</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">292</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">TRAMADOL 100 MG/ML</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">5.000</td>
-                                </tr>
-
-                                <tr class="table-row-hover bg-transparent">
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-400 font-mono text-xs">293</td>
-                                    <td class="px-4 md:px-6 py-3.5 font-semibold text-slate-700">TRAMADOL 50 MG/ML</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-slate-500">AMPOLA</td>
-                                    <td class="px-4 md:px-6 py-3.5 text-right text-teal-600 font-mono font-bold">5.000</td>
                                 </tr>
 
                                 <tr class="type-separator">
@@ -2758,8 +2793,7 @@
                 </div>
             </section>
 
-            <section class="glass-container rounded-2xl md:rounded-3xl overflow-hidden relative fade-in-up" style="animation-delay: 0.7000000000000001s;">
-                <!-- Destaque visual decorativo -->
+            <section class="glass-container rounded-2xl md:rounded-3xl overflow-hidden relative fade-in-up" style="animation-delay: 0.9s;">
                 <div class="absolute top-0 left-0 w-1.5 h-full bg-teal-400"></div>
                 
                 <div class="p-4 md:p-6 border-b border-teal-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 relative z-10 hover:bg-teal-50/50 transition-colors cursor-pointer" onclick="toggleAccordion('lote_6')">
